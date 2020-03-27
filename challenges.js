@@ -850,7 +850,7 @@ Difficulty:  Intermediate
 Prompt:
 
 - Write a function called isWinningTicket that accepts a single array an as argument.
-- The input array represents a 'lottery ticket' consisting of one or more nested 2-value arrays.  The first value of a nested array will be a string, the second an integer.
+- The input array represents a 'lottery ticket' consisting of one or more nested 2-value arrays. The first value of a nested array will be a string, the second an integer.
 - The isWinningTicket function should return true if all of the nested arrays have a character in the string whose numeric character code equals the integer (2nd value).
 - If any of the nested arrays have a string where all of the character's character code does not match the integer, then return false.
 
@@ -868,9 +868,20 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
 
-
-
-
+function isWinningTicket(arr){
+  let count=0;
+  for(let i=0; i<arr.length; i++){
+    if(arr[i][0].includes(String.fromCharCode(arr[i][1]))){
+      count=count+1
+    }
+  }
+  if(arr.length==count){
+    return true
+  }
+  else{
+    return false
+  }
+}
 
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
