@@ -809,19 +809,34 @@ balancedBrackets( '[({}[])]' ) // => true
 function balancedBrackets(str){
   if(str.includes('(')){
     if(str.includes(')')){
-      return true
+      if((str.indexOf(')')-str.indexOf('('))%2===1){
+        return true
+      }
+      else{
+        return false
+      }
     }
     else return false
   }
   if(str.includes('[')){
     if(str.includes(']')){
-      return true
+      if((str.indexOf(']')-str.indexOf('['))%2===1){
+        return true
+      }
+      else{
+        return false
+      }
     }
     else return false
   }
   if(str.includes('{')){
     if(str.includes('}')){
-      return true
+      if((str.indexOf('}')-str.indexOf('{'))%2===1){
+        return true
+      }
+      else{
+        return false
+      }
     }
     else return false
   }
