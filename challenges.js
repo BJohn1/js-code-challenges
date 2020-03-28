@@ -937,8 +937,32 @@ toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
 
-
-
+function toCamelCase(str){
+  let ans=''
+  for(let i=0; i<str.length; i++){
+    if(str.includes('_')){
+    if(str[i]!=='_'){
+      if(str[i-1]==='_'){
+        ans+=str[i].toUpperCase()
+      }
+      else{
+        ans+=str[i]
+      }  
+    }
+  }
+else if(str.includes('-')){
+    if(str[i]!=='-'){
+      if(str[i-1]==='-'){
+        ans+=str[i].toUpperCase()
+      }
+      else{
+        ans+=str[i]
+      }  
+    }
+  }
+}
+  return ans
+}
 
 
 /*-----------------------------------------------------------------
