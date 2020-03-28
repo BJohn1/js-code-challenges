@@ -909,9 +909,10 @@ getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
 
-
-
-
+function getNumForIP(str){
+  const quad = str.split('.')
+  return (quad[0]*(256**3))+(quad[1]*(256**2))+(quad[2]*(256**1))+(quad[3]*(256**0))
+}
 
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
