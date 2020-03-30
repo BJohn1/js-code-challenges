@@ -991,9 +991,16 @@ countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
 
-
-
-
+function countTheBits(int){
+  let count=0
+  let ans=int.toString(2)
+  for(let i=0; i<ans.length; i++){
+    if(ans[i]==='1'){
+      count+=1
+    }
+  }
+  return count
+}
 
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
@@ -1019,9 +1026,37 @@ gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
 
-
-
-
+function gridTrip(arr, str){
+  let ref=[]
+  let wrd=''
+  for(let i=0; i<str.length;i++){
+    if(isNaN(str[i])){
+      ref.push(str[i])
+      wrd=''
+    }
+    else{
+      wrd+=str[i]
+      if(isNaN(str[i+1])){
+        ref.push(wrd)
+      }
+    }
+  }
+  for(let i=0; i<ref.length;i++){
+    if(ref[i]==='L'){
+      arr[1]=arr[1]-parseInt(ref[i+1])
+    }
+    else if(ref[i]==='R'){
+      arr[1]=arr[1]+parseInt(ref[i+1])
+    }
+    else if(ref[i]==='U'){
+      arr[0]=arr[0]+parseInt(ref[i+1])
+    }
+    else if(ref[i]==='D'){
+      arr[0]=arr[0]-parseInt(ref[i+1])
+    }
+  }
+  return arr
+}
 
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
