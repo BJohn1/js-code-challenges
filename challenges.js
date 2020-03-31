@@ -1120,7 +1120,7 @@ Hint:
 
 Examples:
 
-totalTaskTime( [], 1 ) // => 0
+,( [], 1 ) // => 0
 totalTaskTime( [4, 2, 5], 1 ) // => 11
 totalTaskTime( [5, 8], 2 ) // => 8
 totalTaskTime( [4, 2, 10], 2 ) // => 12
@@ -1128,5 +1128,44 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
-
-
+function totalTaskTime(arr,int){
+  let temp=[] 
+  let count=0
+  if(arr.length<1){
+    return 0
+  }
+  if(int===arr.length){
+    let num=0
+    for(let i=0;i<arr.length;i++){
+      if(arr[i]>num){
+        num=arr[i]
+      }
+    }
+    return num
+  }
+  if(int<arr.length){
+    for(let i=0; i<int;i++){
+      temp.push(arr.shift())
+    }
+    while(arr.length!==0){
+      for(let j=0;j<temp.length;j++){
+        temp[j]-=1
+      }
+      count+=1
+      if(temp.includes(0)){
+        temp.sort()
+        temp.shift()
+        temp.push(arr.shift())
+      }
+    }
+    let ans=0
+    for(let k=0;k<temp.length;k++){
+      if(temp[k]>ans){
+        ans=temp[k]
+      }
+    }
+    count+=ans
+    console.log(temp)
+    return count
+  }
+}
