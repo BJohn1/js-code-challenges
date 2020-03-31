@@ -1129,6 +1129,7 @@ totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
 function totalTaskTime(arr,int){
+  console.log(arr)
   let temp=[] 
   let count=0
   if(arr.length<1){
@@ -1141,6 +1142,7 @@ function totalTaskTime(arr,int){
         num=arr[i]
       }
     }
+    //console.log("answer is "+num)
     return num
   }
   if(int<arr.length){
@@ -1152,7 +1154,7 @@ function totalTaskTime(arr,int){
         temp[j]-=1
       }
       count+=1
-      if(temp.includes(0)){
+      while(temp.includes(0)){
         temp.sort()
         temp.shift()
         temp.push(arr.shift())
@@ -1165,7 +1167,8 @@ function totalTaskTime(arr,int){
       }
     }
     count+=ans
-    console.log(temp)
+    //console.log(temp)
+    //console.log("answer is "+count)
     return count
   }
 }
